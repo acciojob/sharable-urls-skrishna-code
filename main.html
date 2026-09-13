@@ -1,8 +1,39 @@
+```html
 <!DOCTYPE html>
-<html>
-  <body>
-    <script type="text/javascript" src="./script.js">
-</script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharable URLs</title>
+</head>
+<body>
 
+  <form>
+    <input type="text" id="name" name="name">
+    
+    <input type="number" id="year" name="year">
+    
+    <button type="submit" id="button">Submit</button>
+  </form>
+
+  <h3 id="url">https://localhost:8080/</h3>
+
+  <script>
+    const nameInput = document.getElementById("name");
+    const yearInput = document.getElementById("year");
+    const button = document.getElementById("button");
+    const url = document.getElementById("url");
+
+    button.addEventListener("click", function(event) {
+      event.preventDefault();
+
+      const name = nameInput.value;
+      const year = yearInput.value;
+
+      url.innerText = `https://localhost:8080/?name=${name}&year=${year}`;
+    });
+  </script>
+
+</body>
 </html>
+```
